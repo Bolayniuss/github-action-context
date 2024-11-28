@@ -1,0 +1,15 @@
+name: Test delete branch
+
+on:
+  delete:
+
+jobs:
+  delete-deployment:
+    if: github.event.ref_type == 'branch'
+    name: Build and update index.html
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo branch
+        run: |
+          GIT_BRANCH=$(echo ${{ github.event.ref }} | sed -e "s#refs/heads/##g")
+          echo "GIT_BRANCH=$GIT_BRANCH"
