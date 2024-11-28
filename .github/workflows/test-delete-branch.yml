@@ -2,6 +2,7 @@ name: Test delete branch
 
 on:
   delete:
+  workflow_dispatch:
 
 jobs:
   delete-deployment:
@@ -11,5 +12,7 @@ jobs:
     steps:
       - name: Echo branch
         run: |
+          set -x
           GIT_BRANCH=$(echo ${{ github.event.ref }} | sed -e "s#refs/heads/##g")
           echo "GIT_BRANCH=$GIT_BRANCH"
+          ls "$GIT_BRANCH"
