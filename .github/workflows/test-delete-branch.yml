@@ -6,7 +6,6 @@ on:
 
 jobs:
   delete-deployment:
-    if: github.event.ref_type == 'branch'
     name: Build and update index.html
     runs-on: ubuntu-latest
     steps:
