@@ -1,4 +1,4 @@
-name: Print full context ${{ github.event_name }} - ${{ github.event.ref_type }}
+name: Print full context
 
 on:
   create:
